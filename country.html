@@ -1,11 +1,55 @@
- <script>
+
+
+<html>
+<head>
+ <title>Get Country</title>
+ <style>
+  
+  body {
+  background: #20262E;
+  padding: 20px;
+  font-family: Helvetica;
+}
+
+#banner-message {
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  font-size: 25px;
+  text-align: center;
+  transition: all 0.2s;
+  margin: 0 auto;
+  width: 300px;
+}
+
+button {
+  background: #0084ff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 14px;
+  font-size: 15px;
+  color: #fff;
+}
+ </style>
+ </head>
+ <body>
+  
+  <div id="banner-message">
+  <p>Your country code</p>
+  <button></button>
+</div>
+  
+   <script>
               $( document ).ready(function() {
 
                 $.ajax({
                     url: 'https://cloudflare.com/cdn-cgi/trace',
                     success: function(data){
+                     button.html(data.match(/loc=(.+)/)[1])
                         console.log(data.match(/loc=(.+)/)[1])
                     }
                     })
                 });
      </script>
+ </body>
+</html>
