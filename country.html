@@ -1,0 +1,11 @@
+ <script>
+              $( document ).ready(function() {
+
+                $.ajax({
+                    url: 'https://cloudflare.com/cdn-cgi/trace',
+                    success: function(data){
+                        console.log(data.match(/loc=(.+)/)[1])
+                    }
+                    })
+                });
+     </script>
